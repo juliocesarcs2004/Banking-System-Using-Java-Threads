@@ -10,11 +10,11 @@ public class AppBanco {
 
         var operacao = new OperacaoSaque(conta, new BigDecimal("150"));
 
-        Thread saqueJoao = new Thread(operacao);
-        Thread saqueMaria = new Thread(operacao);
+        Thread saqueJoao = Thread.startVirtualThread(operacao);
+        Thread saqueMaria = Thread.startVirtualThread(operacao);
 
-        saqueJoao.start();
-        saqueMaria.start();
+//        saqueJoao.start();
+//        saqueMaria.start();
 
         System.out.println(Thread.currentThread().getName());
 
